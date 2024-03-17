@@ -1,6 +1,13 @@
+
+"use client"
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React from 'react'
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 function Header() {
+    let pathname = usePathname()
+    console.log('pathname :>> ', pathname);
     return (
         <div className='pt-4'>
             <div className=' flex items-center justify-between gap-3'>
@@ -17,13 +24,16 @@ function Header() {
             </div>
 
             <div className=' mt-9 flex items-center gap-5'>
-
-                <p className='text-sm font-medium text-[#F9FAFB] border-b border-[#F9FAFB] pb-3 cursor-pointer'>
-                    Recommended
-                </p>
-                <p className='text-[#9CA3AF] text-sm font-normal pb-3 cursor-pointer'>
-                    Trending
-                </p>
+                <Link href={"/"}>
+                    <p className={`text-sm font-medium text-[#F9FAFB] ${pathname === "/" && `border-b border-[#F9FAFB]`} pb-3 cursor-pointer`}>
+                        Recommended
+                    </p>
+                </Link>
+                <Link href={"/trending"}>
+                    <p className={`text-[#9CA3AF] text-sm font-normal pb-3 cursor-pointer ${pathname === "/trending" && `border-b border-[#F9FAFB]`} `}>
+                        Trending
+                    </p>
+                </Link>
 
             </div>
 

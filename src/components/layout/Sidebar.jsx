@@ -1,7 +1,12 @@
+"use client"
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 
 function Sidebar() {
+
+    let pathname = usePathname()
+
     return (
         <div className='hidden sm:block fixed left-0 w-[240px] h-screen min-h-full  bg-[#212124] px-4 py-8'>
 
@@ -16,14 +21,14 @@ function Sidebar() {
             <div className=' mt-9'>
                 <ul>
                     <Link href="/">
-                        <li className=' font-medium text-sm text-[#00FFFF]'>
+                        <li className={`font-medium text-sm ${pathname === "/" ? "text-[#00FFFF]" : "text-[#FFF]"} `}>
                             Recommended
                         </li>
                     </Link>
 
                     <Link href="/trending">
 
-                        <li className=' font-medium text-sm text-[#FFF] mt-5'>
+                        <li className={`font-medium mt-5 text-sm ${pathname === "/trending" ? "text-[#00FFFF]" : "text-[#FFF]"}`} >
                             Trending
                         </li>
                     </Link>
