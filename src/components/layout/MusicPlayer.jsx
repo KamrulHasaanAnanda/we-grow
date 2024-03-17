@@ -31,8 +31,8 @@ function MusicPlayer({ selectedSong }) {
     }, [])
 
     return (
-        <div className='fixed p-3 h-16 flex border-t items-center justify-between shadow-lg bg-[#212124] left-0 bottom-0 w-full'>
-            <div className='flex items-center gap-3 w-[30%] sm:w-[25%]'>
+        <div className='fixed p-3 h-16 flex border-t border-black items-center justify-between shadow-lg bg-[#212124] left-0 bottom-0 w-full'>
+            <div className='flex items-center gap-3 w-[50%] sm:w-[25%]'>
                 <Image src={selectedSong?.image} alt="song" width={50} height={50} />
                 <p className=' text-xs truncate text-pretty sm:text-base font-normal text-white'>
                     {selectedSong?.title}
@@ -42,9 +42,9 @@ function MusicPlayer({ selectedSong }) {
 
 
             </audio>
-            <div className=' w-[70%] sm:w-[50%]'>
-                <div className='flex items-center gap-4 w-full justify-center'>
-                    <IoPlayBackOutline />
+            <div className='w-[50%]'>
+                <div className='flex items-center gap-4 w-full justify-end sm:justify-center'>
+                    <IoPlayBackOutline className=' hidden sm:block' />
                     <div className="bg-white h-8 w-8 right-2 bottom-[25%] cursor-pointer rounded-[50%] flex justify-center items-center">
                         {
                             playing ? <CiPause1 onClick={() => {
@@ -61,7 +61,7 @@ function MusicPlayer({ selectedSong }) {
                         }
 
                     </div>
-                    <IoPlayForwardOutline />
+                    <IoPlayForwardOutline className=' hidden sm:block' />
 
                 </div>
                 <MusicSlider duration={duration} currentTime={currentTime} audioRef={audio} setCurrentTime={setCurrentTime} />

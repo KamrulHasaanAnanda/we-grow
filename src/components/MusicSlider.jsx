@@ -17,7 +17,7 @@ function MusicSlider({ duration, currentTime, setCurrentTime, audioRef }) {
     };
 
     return (
-        <div className="flex items-center space-x-2">
+        <div className=" hidden sm:flex items-center space-x-2">
             <div className="text-sm text-gray-600">
                 {formatTime(currentTime)}
             </div>
