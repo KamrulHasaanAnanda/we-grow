@@ -1,13 +1,29 @@
 
 "use client"
 
+import searchStore from '@/store/searchStore';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import { useDebounce } from '../useDebounce';
+
 function Header() {
     let pathname = usePathname()
-    console.log('pathname :>> ', pathname);
+    const { searchValue, searchValueChange } = searchStore();
+
+    // const [inputValue, setInputValue] = useState('');
+    // // console.log('first', first)
+    // const debouncedSearchTerm = useDebounce(inputValue, 500);
+    // useEffect(() => {
+    //     if (debouncedSearchTerm) {
+    //         searchValueChange(debouncedSearchTerm)
+    //         // Implement your search logic here using debouncedSearchTerm
+    //         console.log("dddd", debouncedSearchTerm);
+    //         // For example, fetch data from an API
+    //     }
+    // }, [debouncedSearchTerm]);
+    console.log('searchValue :>> ', searchValue);
     return (
         <div className='pt-4'>
             <div className=' flex items-center justify-between gap-3'>
@@ -19,7 +35,7 @@ function Header() {
                         <FaAngleRight />
                     </div>
                 </div>
-                <input type="text" placeholder="Search your favourite music " className='rounded-xl bg-[#1F1F22] text-[#1F1F22] border text-sm font-normal h-10  sm:min-w-[250px] md:min-w-[350px] min-w-full p-4' />
+                <input onChange={(e) => searchValueChange(e.target.value)} type="text" placeholder="Search your favourite music " className='rounded-xl bg-[#1F1F22] text-[#fff] border text-sm font-normal h-10  sm:min-w-[250px] md:min-w-[350px] min-w-full p-4' />
 
             </div>
 
