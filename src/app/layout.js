@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
 
   const heads = headers();
   const header_url = heads.get("x-url") || "";
-  console.log("pathname", header_url);
+  // console.log("pathname", header_url);
 
   let unAuthUrl = ["/login", "/register"];
   let components = "";
