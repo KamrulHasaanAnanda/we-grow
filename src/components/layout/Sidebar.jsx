@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 function Sidebar() {
@@ -14,16 +15,18 @@ function Sidebar() {
 
             <div className=' mt-9'>
                 <ul>
-                    <li className=' font-medium text-sm text-[#00FFFF]'>
-                        Home
-                    </li>
-                    <li className=' font-medium text-sm text-[#FFF] mt-5'>
-                        Recommended
-                    </li>
+                    <Link href="/">
+                        <li className=' font-medium text-sm text-[#00FFFF]'>
+                            Recommended
+                        </li>
+                    </Link>
 
-                    <li className=' font-medium text-sm text-[#FFF] mt-5'>
-                        Trending
-                    </li>
+                    <Link href="/trending">
+
+                        <li className=' font-medium text-sm text-[#FFF] mt-5'>
+                            Trending
+                        </li>
+                    </Link>
 
 
 

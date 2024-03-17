@@ -3,8 +3,8 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 function Header() {
     return (
         <div className='pt-4'>
-            <div className='flex items-center justify-between gap-3'>
-                <div className='flex gap-3 items-center'>
+            <div className=' flex items-center justify-between gap-3'>
+                <div className='hidden sm:flex gap-3 items-center'>
                     <div className='bg-[#1F1F22] h-10 w-10 flex justify-center items-center rounded-[50%] '>
                         <FaAngleLeft />
                     </div>
@@ -12,7 +12,7 @@ function Header() {
                         <FaAngleRight />
                     </div>
                 </div>
-                <input type="text" placeholder="Search your favourite music " className='rounded-xl bg-[#1F1F22] text-[#1F1F22] border text-sm font-normal h-10 min-w-[250px] md:min-w-[350px] p-4' />
+                <input type="text" placeholder="Search your favourite music " className='rounded-xl bg-[#1F1F22] text-[#1F1F22] border text-sm font-normal h-10  sm:min-w-[250px] md:min-w-[350px] min-w-full p-4' />
 
             </div>
 
