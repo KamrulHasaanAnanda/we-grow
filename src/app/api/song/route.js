@@ -10,7 +10,7 @@ export async function GET(request) {
             artistname: "Artcell",
             copyright: "G-Series",
             duration: "340",
-            image: "https://shadhinmusiccontent.sgp1.digitaloceanspaces.com/AlbumPreviewImageFile/SporsherOnubhuti_<$size$>.jpg",
+            image: "https://shadhinmusiccontent.sgp1.digitaloceanspaces.com/AlbumPreviewImageFile/SporsherOnubhuti_300.jpg",
             title: "Sporsher Onubhuti"
         },
         {
