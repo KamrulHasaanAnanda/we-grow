@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import MainLayout from "@/components/layout/MainLayout";
-
+import { headers } from "next/headers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -10,12 +10,24 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+  const heads = headers();
+  const header_url = heads.get("x-url") || "";
+  console.log("pathname", header_url);
+
+  let unAuthUrl = ["/login", "/register"];
+  let components = "";
+  if (unAuthUrl.includes(header_url)) {
+    components = <div>{children}</div>;
+  } else {
+    components = <MainLayout>{children}</MainLayout>;
+  }
   return (
     <html lang="en">
       <body className={inter.className}>
-        <MainLayout>
-          {children}
-        </MainLayout>
+
+        {components}
+
       </body>
     </html>
   );
