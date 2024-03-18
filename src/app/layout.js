@@ -3,6 +3,7 @@ import "./globals.css";
 import MainLayout from "@/components/layout/MainLayout";
 import { headers } from "next/headers";
 import MusicPlayer from "@/components/layout/MusicPlayer";
+import { ToastContainer } from "react-toastify";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -28,7 +29,11 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
 
         {components}
-      <MusicPlayer />
+        <MusicPlayer />
+        <ToastContainer position="top-right"
+          autoClose={5000} draggable
+          theme="dark"
+          transition="Bounce" />
       </body>
     </html>
   );
