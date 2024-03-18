@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import MainLayout from "@/components/layout/MainLayout";
 import { headers } from "next/headers";
+import MusicPlayer from "@/components/layout/MusicPlayer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -27,7 +28,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
 
         {components}
-
+      <MusicPlayer />
       </body>
     </html>
   );

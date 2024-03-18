@@ -6,12 +6,12 @@ export async function GET(request) {
     let data = [
         {
 
-            url: "AudioMainFile/SporsherOnubhuti_Artcell.mp3",
+            url: "http://download.music.com.bd/Music/A/Artcell/Oniket Prantor/Artcell - Oniket Prantor (music.com.bd).mp3",
             artistname: "Artcell",
             copyright: "G-Series",
             duration: "340",
-            image: "https://shadhinmusiccontent.sgp1.digitaloceanspaces.com/AlbumPreviewImageFile/SporsherOnubhuti_300.jpg",
-            title: "Sporsher Onubhuti"
+            image: "https://shadhinmusiccontent.sgp1.digitaloceanspaces.com/AlbumPreviewImageFile/AniketPrantor_300.jpg",
+            title: "Oniket Prantor"
         },
         {
 
@@ -58,11 +58,12 @@ export async function GET(request) {
             title: "Poth Chola"
         }, {
 
-            url: "http://download.music.com.bd/Music/A/Artcell/Onno Shomoy/04 - Artcell - Mukhosh (music.com.bd).mp3",
+            url: "http://download.music.com.bd/Music/A/Artcell/Onno Shomoy/05 - Artcell - Mukhosh (music.com.bd).mp3",
             artistname: "Artcell",
             copyright: "G-Series",
             duration: "340",
-            image: "https://shadhinmusiccontent.sgp1.digitaloceanspaces.com/AlbumPreviewImageFile/AniketPrantor_300.jpg",
+            image: "https://shadhinmusiccontent.sgp1.digitaloceanspaces.com/AlbumPreviewImageFile/SporsherOnubhuti_300.jpg",
+
             title: "Mukhosh"
         },
 

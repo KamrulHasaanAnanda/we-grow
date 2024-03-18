@@ -10,28 +10,20 @@ import { useDebounce } from '../useDebounce';
 
 function Header() {
     let pathname = usePathname()
-    const { searchValue, searchValueChange } = searchStore();
+    const { searchValueChange } = searchStore();
 
-    // const [inputValue, setInputValue] = useState('');
-    // // console.log('first', first)
-    // const debouncedSearchTerm = useDebounce(inputValue, 500);
-    // useEffect(() => {
-    //     if (debouncedSearchTerm) {
-    //         searchValueChange(debouncedSearchTerm)
-    //         // Implement your search logic here using debouncedSearchTerm
-    //         console.log("dddd", debouncedSearchTerm);
-    //         // For example, fetch data from an API
-    //     }
-    // }, [debouncedSearchTerm]);
-    console.log('searchValue :>> ', searchValue);
     return (
         <div className='pt-4'>
             <div className=' flex items-center justify-between gap-3'>
                 <div className='hidden sm:flex gap-3 items-center'>
-                    <div className='bg-[#1F1F22] h-10 w-10 flex justify-center items-center rounded-[50%] '>
+                    <div className='bg-[#1F1F22] h-10 w-10 flex justify-center items-center rounded-[50%] cursor-pointer ' onClick={() => {
+                        window.history.back()
+                    }}>
                         <FaAngleLeft />
                     </div>
-                    <div className='bg-[#1F1F22] h-10 w-10 flex justify-center items-center rounded-[50%] '>
+                    <div className='bg-[#1F1F22] h-10 w-10 flex justify-center items-center rounded-[50%] cursor-pointer ' onClick={() => {
+                        window.history.forward()
+                    }}>
                         <FaAngleRight />
                     </div>
                 </div>

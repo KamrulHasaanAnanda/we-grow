@@ -1,11 +1,10 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import MusicPlayer from './layout/MusicPlayer';
 import { CiPlay1 } from "react-icons/ci";
 import Image from "next/image";
 import searchStore from '@/store/searchStore';
 
-function Recommended({ songs }) {
+function Trending({ songs }) {
     const { searchValue, setSelectedSong } = searchStore();
 
 
@@ -54,4 +53,4 @@ function Recommended({ songs }) {
     );
 }
 
-export default Recommended;
+export default Trending;

@@ -1,10 +1,15 @@
+"use client"
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { IoPlayBackOutline, IoPlayForwardOutline } from "react-icons/io5";
 import { CiPlay1, CiPause1 } from "react-icons/ci";
 import MusicSlider from '../MusicSlider';
+import searchStore from '@/store/searchStore';
 
-function MusicPlayer({ selectedSong }) {
+function MusicPlayer() {
+    const { selectedSong } = searchStore();
+    // console.log('selectedSong', selectedSong)
+
     const audio = useRef()
     const [playing, setPlaying] = useState(true);
     const [currentTime, setCurrentTime] = useState(0);
@@ -22,7 +27,8 @@ function MusicPlayer({ selectedSong }) {
     };
 
     useEffect(() => {
-        if (audio) {
+        if (audio?.current) {
+            console.log('audio?.current', audio?.current)
             audio.current.addEventListener('timeupdate', handleTimeUpdate);
             return () => {
                 audio.current.removeEventListener('timeupdate', handleTimeUpdate);
@@ -31,7 +37,9 @@ function MusicPlayer({ selectedSong }) {
     }, [])
 
     return (
-        <div className='fixed p-3 h-16 flex border-t border-black items-center justify-between shadow-lg bg-[#212124] left-0 bottom-0 w-full'>
+        <div className='fixed p-3 h-16 border-t border-black items-center justify-between shadow-lg bg-[#212124] left-0 bottom-0 w-full' style={{
+            display: selectedSong ? "flex" : `none`
+        }}>
             <div className='flex items-center gap-3 w-[50%] sm:w-[25%]'>
                 <Image src={selectedSong?.image} alt="song" width={50} height={50} />
                 <p className=' text-xs truncate text-pretty sm:text-base font-normal text-white'>
