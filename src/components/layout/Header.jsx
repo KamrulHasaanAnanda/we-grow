@@ -3,7 +3,7 @@
 
 import searchStore from '@/store/searchStore';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { useDebounce } from '../useDebounce';
@@ -12,6 +12,32 @@ function Header() {
     let pathname = usePathname()
     const { searchValueChange } = searchStore();
 
+    const [auth, setauth] = useState(null)
+    const [name, setname] = useState(null)
+
+    let router = useRouter()
+    useEffect(() => {
+        let localStorageData = localStorage.getItem("weGrow")
+        if (localStorageData) {
+            let localValue = JSON.parse(localStorageData)[0]
+            setauth(localValue)
+            let localName = localValue?.email.split("@")[0].charAt(0).toUpperCase() + localValue.email.split("@")[0].slice(1)
+            setname(localName)
+
+        }
+    }, [])
+    let logout = () => {
+        if (name) {
+            localStorage.removeItem("weGrow")
+            setauth(null)
+
+            router.push("/login")
+        } else {
+
+            router.push("/login")
+
+        }
+    }
     return (
         <div className='pt-4'>
             <div className=' flex items-center justify-between gap-3'>
@@ -45,6 +71,11 @@ function Header() {
 
             </div>
 
+            <div className='mt-3 block sm:hidden pl-4' onClick={logout}>
+
+                Hello,{name ? name : "there"}
+
+            </div>
         </div>
     )
 }
