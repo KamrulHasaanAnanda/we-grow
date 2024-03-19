@@ -34,7 +34,7 @@ function MusicPlayer() {
                 audio.current.removeEventListener('timeupdate', handleTimeUpdate);
             };
         }
-    }, [])
+    }, [selectedSong])
 
     return (
         <div className='fixed p-3 h-16 border-t border-black items-center justify-between shadow-lg bg-[#212124] left-0 bottom-0 w-full' style={{
