@@ -1,7 +1,7 @@
 
 "use client"
 import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
 function Login() {
@@ -10,42 +10,19 @@ function Login() {
         email: '',
         password: ''
     })
+
+    useEffect(() => {
+        localStorage.removeItem("weGrow")
+    }, [])
+
     let submitData = () => {
-        let storeLogins = localStorage.getItem("weGrow");
-        // console.log('storeLogins', storeLogins)
-        if (storeLogins) {
-            let storeLoginArray = JSON.parse(storeLogins);
-            let filterData = storeLoginArray.filter(storeLogin => storeLogin?.email === data?.email);
-            if (filterData.length > 0) {
-                toast.success("Login successful")
-                localStorage.setItem("weGrow", JSON.stringify(filterData))
-                router.push("/")
-                setdata({
-                    email: '',
-                    password: ''
-                })
-            } else {
-                toast.success("Login successful")
+        setdata({
+            email: '',
+            password: ''
+        })
+        localStorage.setItem("weGrow", JSON.stringify([data]));
+        router.push("/")
 
-                setdata({
-                    email: '',
-                    password: ''
-                })
-                router.push("/")
-                storeLoginArray.push(data);
-                localStorage.setItem("weGrow", JSON.stringify(storeLoginArray));
-            }
-
-
-        } else {
-            toast.success("Login successful")
-            setdata({
-                email: '',
-                password: ''
-            })
-            localStorage.setItem("weGrow", JSON.stringify([data]));
-            // router.push("/")
-        }
     }
     return (
         <div className='flex flex-col items-center justify-center h-full w-full mb-2 mt-28 sm:mt-0' >
