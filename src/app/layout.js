@@ -13,28 +13,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
-  const heads = headers();
-  const header_url = heads.get("x-url") || "";
 
-
-  let unAuthUrl = ["/login", "/register"];
-  let components = "";
-  if (unAuthUrl.includes(header_url)) {
-    components = <div>{children}</div>;
-  } else {
-    components = <MainLayout>{children}</MainLayout>;
-  }
   return (
     <html lang="en">
       <body className={inter.className}>
 
-        {components}
+        <MainLayout>{children}</MainLayout>
         <MusicPlayer />
         <ToastContainer position="top-right"
-          autoClose={5000} draggable
-          theme="dark"
-          transition="Bounce" />
+
+        />
       </body>
     </html>
-  );
+  )
 }

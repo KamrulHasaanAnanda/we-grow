@@ -27,7 +27,7 @@ function MusicPlayer() {
     };
 
     useEffect(() => {
-        if (audio?.current) {
+        if (audio?.current && selectedSong) {
             console.log('audio?.current', audio?.current)
             audio.current.addEventListener('timeupdate', handleTimeUpdate);
             return () => {

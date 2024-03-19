@@ -12,13 +12,13 @@ function Login() {
     })
     let submitData = () => {
         let storeLogins = localStorage.getItem("weGrow");
-        console.log('storeLogins', storeLogins)
+        // console.log('storeLogins', storeLogins)
         if (storeLogins) {
             let storeLoginArray = JSON.parse(storeLogins);
-            storeLoginArray.filter(storeLogin => storeLogin?.email === data?.email);
-            if (storeLoginArray.filter(storeLogin => storeLogin?.email === data?.email).length > 0) {
+            let filterData = storeLoginArray.filter(storeLogin => storeLogin?.email === data?.email);
+            if (filterData.length > 0) {
                 toast.success("Login successful")
-
+                localStorage.setItem("weGrow", JSON.stringify(filterData))
                 router.push("/")
                 setdata({
                     email: '',
